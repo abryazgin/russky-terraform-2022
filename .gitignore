@@ -1,8 +1,8 @@
-# Local .terraform directories
+# Local .conf directories
 **/.terraform/*
 
 # .tfstate files
-*.tfstate
+#*.tfstate
 *.tfstate.*
 
 # Crash log files
@@ -25,5 +25,9 @@ override.tf.json
 #
 # !example_override.tf
 
-# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
+# Include tfplan files to ignore the plan output of command: conf plan -out=tfplan
 # example: *tfplan*
+conf/credentials.tf
+
+.terraform.lock.hcl
+.idea

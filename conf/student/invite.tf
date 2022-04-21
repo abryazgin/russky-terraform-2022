@@ -4,7 +4,7 @@ locals {
 
 resource "yandex_organizationmanager_organization_iam_member" "organization_invite" {
   organization_id = var.organization_id
-  role            = "editor" // TODO check role
+  role            = "viewer" // TODO check role
   member          = local.member_user_id
 }
 

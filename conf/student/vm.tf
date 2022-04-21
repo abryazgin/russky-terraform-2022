@@ -5,6 +5,7 @@ resource "yandex_compute_instance" "vm" {
   name                      = "vm-${var.slug}"
   allow_stopping_for_update = true
   folder_id                 = yandex_resourcemanager_folder.personal_folder.id
+  labels                    = {}
 
   resources {
     cores  = 2
@@ -27,11 +28,8 @@ resource "yandex_compute_instance" "vm" {
 
   metadata = {
     // TODO fix only FIRST user in list added in .ssh
-    ssh-keys = <<EOF
-ubuntu:${local.admins.abryazgin.ssh-key}
-ubuntu:${var.ssh-key}
-ubuntu:${local.admins.dm-fish.ssh-key}
-      EOF
+    user-data = "#cloud-config\nusers:\n  - name: abryazgin\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${local.admins.abryazgin.ssh-key}\n  - name: dm-fish\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${local.admins.dm-fish.ssh-key}\n"
+    ssh-keys = "ubuntu:${var.ssh_key}"
   }
 }
 

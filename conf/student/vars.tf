@@ -15,6 +15,6 @@ variable "login" {
   type = string
 }
 
-variable "ssh-key" {
+variable "ssh_key" {
   type = string
 }

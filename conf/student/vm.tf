@@ -34,3 +34,7 @@ ubuntu:${local.admins.dm-fish.ssh-key}
       EOF
   }
 }
+
+output vm_id {
+  value = yandex_compute_instance.vm.id
+}

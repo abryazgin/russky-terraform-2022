@@ -2,19 +2,20 @@
 
 ## Install
 
-1. Install terraform by [instruction](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-quickstart#from-yc-mirror)
-2. Got Y.Cloud token by [link](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb)
-3. create file `conf/credentials.tf` with:
+1. Got Y.Cloud token by [link](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb)
+2. Install `yc` by [instruction](https://cloud.yandex.ru/docs/cli/quickstart#install)
+3. Install terraform by [instruction](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-quickstart#from-yc-mirror)
+4. create file `conf/credentials.tf` with:
    ```
    locals {
       token = "AQAA..."
    }
    ```
-4. Move to `conf` directory with tf-sources
+5. Move to `conf` directory with tf-sources
    ```bash 
    cd conf
    ```
-5. (if next `terraform init` will failed):
+6. (if next `terraform init` will failed):
    ```bash
    cat << EOF > ~/.terraformrc
    provider_installation {

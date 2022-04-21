@@ -16,3 +16,9 @@ module "student_modules" {
   cloud_id = local.cloud_id
   organization_id = local.organization_id
 }
+
+output "personal_vm_ids" {
+  value = [
+    for slug, mod in module.student_modules : mod.vm_id
+  ]
+}

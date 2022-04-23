@@ -22,3 +22,13 @@ resource "yandex_resourcemanager_folder_iam_member" "folder_invites" {
   role      = each.value
   member    = local.member_user_id
 }
+
+# https://web.archive.org/web/20201031200904/https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_cloud_iam_member
+#resource "yandex_resourcemanager_folder_iam_member" "network_folder_invites" {
+#  for_each  = toset([
+#    "editor"
+#  ])
+#  folder_id = var.network_folder_id
+#  role      = each.value
+#  member    = local.member_user_id
+#}

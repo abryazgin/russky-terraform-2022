@@ -25,8 +25,10 @@ module "student_modules" {
   app_http_router_id = "ds7v6krr04fccpkuhfts"
 }
 
-output "personal_vm_ids" {
-  value = [
-  for slug, mod in module.student_modules : mod.vm_id
-  ]
+output "personal_vms_map" {
+  value = [for slug, mod in module.student_modules : {id = mod.vm_id, name = mod.vm_name, slug = slug}]
+}
+
+output "personal_folders_map" {
+  value = [for slug, mod in module.student_modules : {id = mod.folder_id, slug = slug}]
 }

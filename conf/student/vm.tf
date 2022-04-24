@@ -8,9 +8,9 @@ resource "yandex_compute_instance" "vm" {
   folder_id                 = yandex_resourcemanager_folder.personal_folder.id
 
   resources {
-    cores  = 2
+    cores         = 2
     core_fraction = 20
-    memory = 2
+    memory        = 2
   }
 
   boot_disk {

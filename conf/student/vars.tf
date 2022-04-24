@@ -1,3 +1,7 @@
+variable "app_http_router_id" {
+  type = string
+}
+
 variable "network_folder_id" {
   type = string
 }
@@ -11,7 +15,7 @@ variable "organization_id" {
 }
 
 variable "slug" {
-  type        = string
+  type = string
   validation {
     # regex(...) fails if it cannot find a match
     condition     = can(regex("^[a-z]([-a-z0-9]{0,61}[a-z0-9])$", var.slug))

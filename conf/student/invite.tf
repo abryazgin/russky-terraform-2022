@@ -17,6 +17,8 @@ resource "yandex_resourcemanager_folder_iam_member" "folder_invites" {
     "compute.viewer",
     "container-registry.images.puller",
     "container-registry.images.pusher",
+    "load-balancer.admin",
+    "alb.editor",
   ])
   folder_id = yandex_resourcemanager_folder.personal_folder.id
   role      = each.value
@@ -24,11 +26,11 @@ resource "yandex_resourcemanager_folder_iam_member" "folder_invites" {
 }
 
 # https://web.archive.org/web/20201031200904/https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_cloud_iam_member
-#resource "yandex_resourcemanager_folder_iam_member" "network_folder_invites" {
-#  for_each  = toset([
-#    "editor"
-#  ])
-#  folder_id = var.network_folder_id
-#  role      = each.value
-#  member    = local.member_user_id
-#}
+resource "yandex_resourcemanager_folder_iam_member" "network_folder_invites" {
+  for_each  = toset([
+    "editor"
+  ])
+  folder_id = var.network_folder_id
+  role      = each.value
+  member    = local.member_user_id
+}

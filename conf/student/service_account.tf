@@ -1,5 +1,5 @@
 resource "yandex_iam_service_account" "docker-ops" {
-  name      = "docker-account-${var.slug}"
+  name      = "service-account-${var.slug}"
   folder_id = yandex_resourcemanager_folder.personal_folder.id
 }
 
@@ -15,9 +15,20 @@ resource "yandex_iam_service_account_iam_binding" "docker-ops-roles" {
 # https://web.archive.org/web/20201031200904/https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_cloud_iam_member
 resource "yandex_resourcemanager_folder_iam_member" "sa-docker-pull-role" {
   for_each  = toset([
-    "container-registry.images.puller"
+    "container-registry.images.puller",
+    "editor",
   ])
   folder_id = yandex_resourcemanager_folder.personal_folder.id
+  role      = each.value
+  member    = "serviceAccount:${yandex_iam_service_account.docker-ops.id}"
+}
+
+# https://web.archive.org/web/20201031200904/https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_cloud_iam_member
+resource "yandex_resourcemanager_folder_iam_member" "sa-network_folder_invites" {
+  for_each  = toset([
+    "editor"
+  ])
+  folder_id = var.network_folder_id
   role      = each.value
   member    = "serviceAccount:${yandex_iam_service_account.docker-ops.id}"
 }

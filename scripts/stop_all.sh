@@ -2,8 +2,8 @@ set -e
 
 ./stop_all_personal_vm.sh
 
-echo "Stopping microtik..."
-yc compute instance stop epd0fqnq0herulchfg77
+#echo "Stopping microtik..."
+#yc compute instance stop epd0fqnq0herulchfg77
 echo "Stopping nat..."
 yc compute instance stop epdo6g6er4kgfa40dijm
 echo "Stopping gitlab..."

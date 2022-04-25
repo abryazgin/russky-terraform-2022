@@ -23,7 +23,7 @@ resource "yandex_compute_instance" "vm" {
     subnet_id = data.yandex_vpc_subnet.private-central1-b.id
 
     dns_record {
-      fqdn = "${var.slug}.vm.internal."
+      fqdn = "${var.slug}.vm."
     }
   }
 
@@ -33,7 +33,7 @@ resource "yandex_compute_instance" "vm" {
 
   metadata = {
     // TODO fix only FIRST user in list added in .ssh
-    user-data = "#cloud-config\nusers:\n  - name: abryazgin\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${local.admins.abryazgin.ssh-key}\n  - name: dm-fish\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${local.admins.dm-fish.ssh-key}\n"
+    user-data = "#cloud-config\nusers:\n  - name: abryazgin\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${local.admins.abryazgin.ssh-key}\n  - name: dm-fish\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${local.admins.dm-fish.ssh-key}\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${var.ssh_key}\n"
     ssh-keys  = "ubuntu:${var.ssh_key}"
   }
 }

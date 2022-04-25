@@ -14,7 +14,7 @@ resource "yandex_alb_backend_group" "vm-backend-group" {
 
   http_backend {
     name             = "http-backend"
-    port             = 80
+    port             = 8080
     target_group_ids = [yandex_alb_target_group.vm-target-group.id]
     http2            = "false"
   }
@@ -45,7 +45,7 @@ resource "yandex_alb_backend_group" "ig-backend-group" {
   folder_id = yandex_resourcemanager_folder.personal_folder.id // ??
   http_backend {
     name             = "http-backend"
-    port             = 80
+    port             = 8080
     target_group_ids = [yandex_alb_target_group.ig-target-group.id]
     http2            = "false"
   }

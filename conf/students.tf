@@ -1,5 +1,9 @@
 locals {
   students = {
+    brya = {
+      login = "bryazginnn"
+      ssh-key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0h/nsyS1kH0K6oEV7po35oCjx3ApT/4lgfN/eW6dyj4OJdwn0878i33U70lNXrk44f/jsP6IyTjA/9FGkyNqujB4ql9neFHlrl2aE7sgsHErNvZOU3qcP51XnU7wJwo21R3WqYONeNZnMSDz6piP+uXneCtfdoxc0pAk1NRvUQd1gUXowCTBl5Vzee2xarTvoWVQsZjLNYyDXsGB0zj2u/2dCtv7Ehh37PHO+2f+pKoZMhSz1Der8sHjDOvqXErORC6tTjT+CXUVF8eHuczUvGRAjgjkd7qtrwEBkzA/CFqlSZCNA0A+caKW6pAtyXl9znQTsse2pb+pPmEcZ2mAv abryazgin@local-vm"
+    }
     dm-fi = {
       login = "dm-fish-russky"
       ssh-key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCn8KXJo86uhtfYNKrOv2sZskSN/jZhXpd3JrEj3rCOTr763v2V0nObML1VUaRoZt5fOE6hhJpclZYJwrkoddjJLISJjTWLSLSIbb0NNTxWRQIZHaQhJgxTKVBDN51kkRHHPjN5YSp26rcVEaGSY+VFOw384Mf15wxymp51GWP+ffsQoq6lU0xGCupqV9QftV8UAHNsUSkjqdMF8XsBSAosY4RJ61UCc6ahM83nrzFpVdaHL30cchb/qUoiX64Jf/VnRJF25rTett277xVle9uIbZAsMf53d1DjLtEhI8HvJuDqT79eY52RxQNnhRSGVm0jNGInbWUGd3mQ9h1+XCHrviNa6jJdX/4hTts+jBUTNbMv5oGhXm/CItNoEiqhhbGjnc6G40Qe69b7sjDsxqWtM1mR9fKVmyK3kTot1qPHI4yklBELxR2586BpdcCSZ9pK8yq+b2oBd8nVFWQpAWRYuna8VCsdvP7n37bycn491oib9Giqgb39BpcL9shHOVk= dm-fi@DESKTOP-M3BFO48"

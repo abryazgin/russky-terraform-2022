@@ -1,0 +1,20 @@
+#cloud-config
+users:
+  - name: abryazgin
+    groups: sudo
+    shell: /bin/bash
+    sudo: [ 'ALL=(ALL) NOPASSWD:ALL' ]
+    ssh-authorized-keys:
+      - ${admins.abryazgin.ssh-key}
+  - name: dm-fish
+    groups: sudo
+    shell: /bin/bash
+    sudo: [ 'ALL=(ALL) NOPASSWD:ALL' ]
+    ssh-authorized-keys:
+      - ${admins.dm-fish.ssh-key}
+  - name: user
+    groups: sudo
+    shell: /bin/bash
+    sudo: [ 'ALL=(ALL) NOPASSWD:ALL' ]
+    ssh-authorized-keys:
+      - ${user_ssh_key}

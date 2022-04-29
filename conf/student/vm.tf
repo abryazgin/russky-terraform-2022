@@ -32,8 +32,7 @@ resource "yandex_compute_instance" "vm" {
   }
 
   metadata = {
-    // TODO fix only FIRST user in list added in .ssh
-    user-data = "#cloud-config\nusers:\n  - name: abryazgin\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${local.admins.abryazgin.ssh-key}\n  - name: dm-fish\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${local.admins.dm-fish.ssh-key}\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${var.ssh_key}\n"
+    user-data = templatefile("${path.module}/user_data.tftpl", { admins : var.admins, user_ssh_key : var.ssh_key })
     ssh-keys  = "ubuntu:${var.ssh_key}"
   }
 }

@@ -30,3 +30,7 @@ variable "login" {
 variable "ssh_key" {
   type = string
 }
+
+variable "admins" {
+  type = map
+}

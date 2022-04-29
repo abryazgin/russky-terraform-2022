@@ -21,7 +21,8 @@
 #    }
 #    scheduling_policy {
 #      preemptible = true  # прерываемая
-#    }
+#    }ccccccrjjkfjlfkjtbfkefiednvrciiegrijflinvrig
+
 #    metadata           = {
 #      docker-compose = templatefile("${path.module}/coi_docker_compose.yaml", {
 #        registry_id : yandex_container_registry.own.id

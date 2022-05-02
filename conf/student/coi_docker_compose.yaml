@@ -10,6 +10,5 @@ services:
             - ELASTIC_APM_SERVICE_NAME=russky-app-2022
             - ELASTIC_APM_SERVER_URL=http://elk.system:8200
             - ELASTIC_APM_ENVIRONMENT={environment}
-            - ELASTIC_APM_HOSTNAME={instance_template.hostname}
             - ELASTIC_APM_SERVICE_VERSION={docker-tag}
-            - ELASTIC_APM_SERVICE_NODE_NAME={instance_template.name}
+            - ELASTIC_APM_SERVICE_NODE_NAME=instance-{instance.index}

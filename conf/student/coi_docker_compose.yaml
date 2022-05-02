@@ -3,7 +3,7 @@ services:
 
     app:
         build: .
-        image: cr.yandex/{registry_id}/russky-app-2022:{docker-tag} # TODO registry id
+        image: cr.yandex/{registry_id}/russky-app-2022:{docker-tag}
         ports:
             - "8080:8080"
         environment:

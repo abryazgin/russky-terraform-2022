@@ -2,6 +2,10 @@ variable "app_http_router_id" {
   type = string
 }
 
+variable "ig_http_router_id" {
+  type = string
+}
+
 variable "network_folder_id" {
   type = string
 }

@@ -15,6 +15,7 @@ resource "yandex_compute_instance" "vm" {
 
   boot_disk {
     initialize_params {
+      size     = 10
       image_id = "fd8anitv6eua45627i0e"  # Ubuntu 20.04 LTS
     }
   }
@@ -35,6 +36,7 @@ resource "yandex_compute_instance" "vm" {
     user-data = templatefile("${path.module}/user_data.tftpl", { admins : var.admins, user_ssh_key : var.ssh_key })
     ssh-keys  = "ubuntu:${var.ssh_key}"
   }
+  status = "ready"
 }
 
 output vm_id {

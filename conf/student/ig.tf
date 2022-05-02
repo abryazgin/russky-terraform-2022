@@ -21,7 +21,7 @@
 #    }
 #    scheduling_policy {
 #      preemptible = true  # прерываемая
-#    }ccccccrjjkfjlfkjtbfkefiednvrciiegrijflinvrig
+#    }
 
 #    metadata           = {
 #      docker-compose = templatefile("${path.module}/coi_docker_compose.yaml", {

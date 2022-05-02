@@ -1,5 +1,6 @@
 resource "yandex_alb_target_group" "vm-target-group" {
   name = "vm-target-group-${var.slug}"
+  folder_id = yandex_resourcemanager_folder.personal_folder.id // ??
   #  folder_id = yandex_resourcemanager_folder.personal_folder.id // ??
 
   target {
@@ -10,7 +11,7 @@ resource "yandex_alb_target_group" "vm-target-group" {
 
 resource "yandex_alb_backend_group" "vm-backend-group" {
   name = "vm-backend-group-${var.slug}"
-  #  folder_id = yandex_resourcemanager_folder.personal_folder.id // ??
+  folder_id = yandex_resourcemanager_folder.personal_folder.id // ??
 
   http_backend {
     name             = "http-backend"
@@ -54,7 +55,7 @@ resource "yandex_alb_backend_group" "ig-backend-group" {
 resource "yandex_alb_virtual_host" "ig-virtual-host" {
   name           = "ig-${var.slug}"
   authority      = ["ig-${var.slug}.app.russky-devops.ru"]
-  http_router_id = var.app_http_router_id
+  http_router_id = var.ig_http_router_id
   route {
     name = "root"
     http_route {
